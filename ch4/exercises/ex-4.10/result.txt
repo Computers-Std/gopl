@@ -1,0 +1,35 @@
+Less than a month old: 3 issues
+#75177   flyhope proposal: encoding/json/v2:  custom unmarshalers for un
+#75207  adonovan x/tools/gopls: impossible nil deref in reflect package
+#74819     dsnet proposal: encoding/json/jsonstruct: new API for handlin
+
+Less than a year old: 6 issues
+#69449   gazerro encoding/json: Decoder.Token does not return an error f
+#71475  oiweiwei encoding/json: improve decoder alloc count
+#71497     dsnet proposal: encoding/json/v2: new API for encoding/json
+#67525 mateusz83 encoding/json: don't silently ignore errors from (*Deco
+#71618  romshark image/jpeg: improve decoder performance by ~12%
+#73457 torbensch proposal: encoding/json/v2: MarshalFunc with reflect.Ty
+
+More than a year old: 21 issues
+#48298     dsnet encoding/json: add Decoder.DisallowDuplicateFields
+#56733 rolandsho proposal: encoding/json/jsontext: add WithByteLimit and
+#42571     dsnet encoding/json: clarify Decoder.InputOffset semantics
+#11046     kurin encoding/json: Decoder internally buffers full input
+#6647    btracey x/pkgsite: display type kind of each named type
+#36225     dsnet encoding/json: the Decoder.Decode API lends itself to m
+#28143    arp242 proposal: encoding/json: add "readonly" tag
+#5901        rsc encoding/json: allow per-Encoder/per-Decoder registrati
+#29035    jaswdr proposal: encoding/json: add error var to compare  the 
+#34543  maxatome encoding/json: Unmarshal & json.(*Decoder).Token report
+#61627    nabice x/tools/gopls: feature: CLI syntax for renaming by iden
+#32779       rsc encoding/json: memoize strings during decode
+#40128  rogpeppe proposal: encoding/json: garbage-free reading of tokens
+#59053   joerdav proposal: encoding/json: add a generic Decode function
+#40982   Segflow encoding/json: use different error type for unknown fie
+#40127  rogpeppe encoding/json: add Encoder.EncodeToken method
+#16212 josharian encoding/json: do all reflect work before decoding
+#41144 alvaroale encoding/json: Unmarshaler breaks DisallowUnknownFields
+#56332    gansvv encoding/json: clearer error message for boolean like p
+#58649 nabokihms encoding/json: show nested fields path if DisallowUnkno
+#26946    deuill encoding/json: clarify what happens when unmarshaling i
