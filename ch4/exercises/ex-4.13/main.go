@@ -11,9 +11,7 @@ import (
 	"path"
 )
 
-// "http://www.omdbapi.com/?apikey=b36549f2&t=cure&y=1997"
-// "http://www.omdbapi.com/?apikey=b36549f2&i=tt0123948"
-const API_KEY = "b36549f2"
+const API_KEY = "[YOUR_KEY]"
 const URL = "http://www.omdbapi.com/?"
 const POSTER_DIR = "posters"
 
@@ -26,7 +24,6 @@ type OMDB struct {
 
 // fetch movie poster
 func Fetch(id string) (OMDB, error) {
-	// FILEPATH := path.Join(POSTER_DIR+ )
 	resp, err := http.Get(URL + "apikey=" + API_KEY + "&i=" + id)
 	if err != nil {
 		return OMDB{}, fmt.Errorf("fetching: %v\n", err)
