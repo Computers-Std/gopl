@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a sample XML document for parser testing -->
+<library xmlns="http://example.com/library" xmlns:bk="http://example.com/book">
+    <book id="1">
+        <title>To Kill a Mockingbird</title>
+        <author>Harper Lee</author>
+        <year>1960</year>
+        <genre>Fiction</genre>
+        <summary><![CDATA[This novel is about the racial injustice in the 1930s south.]]></summary>
+        <note>Best-selling classic.</note>
+        <price currency="USD">15.99</price>
+        <!-- This is a comment -->
+    </book>
+
+    <book id="2">
+        <title>1984</title>
+        <author>George Orwell</author>
+        <year>1949</year>
+        <genre>Dystopian</genre>
+        <summary><![CDATA[1984 explores themes of surveillance, truth, and totalitarianism.]]></summary>
+        <note>Disturbing, but insightful.</note>
+        <price currency="USD">13.49</price>
+    </book>
+
+    <processing-instruction type="xml-stylesheet" href="style.xsl"/>
+</library>
