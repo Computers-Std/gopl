@@ -36,6 +36,7 @@ func (r *MyReader) Read(b []byte) (n int, err error) {
 
 func main() {
 	s := `<p>Links:</p><ul><li><a href="foo">Foo</a><li><a href="/bar/baz">BarBaz</a></ul>`
+	// doc, err := html.Parse(strings.NewReader(s))
 	doc, err := html.Parse(MyNewReader(s))
 	if err != nil {
 		log.Fatal(err)
