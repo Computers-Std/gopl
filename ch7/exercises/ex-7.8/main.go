@@ -53,7 +53,7 @@ func (x *multier) Len() int      { return len(x.t) }
 func (x *multier) Swap(i, j int) { x.t[i], x.t[j] = x.t[j], x.t[i] }
 func (x *multier) Less(i, j int) bool {
 	key := x.primary
-	for k := 0; k < 3; k++ {
+	for k := range 3 {
 		switch key {
 		case "Title":
 			if x.t[i].Title != x.t[j].Title {
@@ -68,9 +68,10 @@ func (x *multier) Less(i, j int) bool {
 				return x.t[i].Length < x.t[j].Length
 			}
 		}
-		if k == 0 {
+		switch k {
+		case 0:
 			key = x.secondary
-		} else if k == 1 {
+		case 1:
 			key = x.third
 		}
 	}
