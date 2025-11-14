@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+     table {
+         border-collapse: collapse;
+         width: auto;
+     }
+     td, th {
+         border: 1px solid #dddddd;
+         text-align: center;
+         padding: 10px;
+     }
+    </style>
+  </head>
+  <body>
+    <h2>Database</h2>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+      </tr>
+      {{ range $item, $price := . }}
+      <tr>
+        <td>{{ $item }}</td>
+        <td>{{ $price }}</td>
+      </tr>
+      {{ end }}
+    </table>
+  </body>
+</html>

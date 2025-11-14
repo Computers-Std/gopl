@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+     table {
+         border-collapse: collapse;
+         width: auto;
+     }
+     td, th {
+         border: 1px solid #dddddd;
+         text-align: center;
+         padding: 10px;
+     }
+    </style>
+  </head>
+  <body>
+    <h2>Playlist</h2>
+    <table>
+      <tr>
+        <th><a href="/title">Title</th>
+        <th><a href="/artist">Artist</th>
+        <th><a href="/album">Album</th>
+        <th><a href="/year">Year</th>
+        <th><a href="/length">Length</th>
+      </tr>
+      {{ range . }}
+      <tr>
+        <td>{{ .Title }}</td>
+        <td>{{ .Artist }}</td>
+        <td>{{ .Album }}</td>
+        <td>{{ .Year }}</td>
+        <td>{{ .Length }}</td>
+      </tr>
+      {{ end }}
+    </table>
+  </body>
+</html>
