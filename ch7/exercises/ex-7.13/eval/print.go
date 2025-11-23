@@ -76,6 +76,7 @@ func (c call) String() string {
 	buf := new(bytes.Buffer)
 	fmt.Fprintf(buf, "%s(", c.fn)
 	for i, arg := range c.args {
+		// put coma after the first arg, for every i > 0
 		if i > 0 {
 			buf.WriteString(", ")
 		}
