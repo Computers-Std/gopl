@@ -74,8 +74,3 @@ func main() {
 	http.HandleFunc("/", handler)
 	http.ListenAndServe(":8000", nil)
 }
-
-// [27-09-2025] FIXME: Incomplete
-
-// [12-11-2025] NOTE: Completed
-// [12-11-2025] TODO: Can I imporve it?

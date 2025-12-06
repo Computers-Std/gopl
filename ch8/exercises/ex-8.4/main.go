@@ -1,3 +1,5 @@
+// NOTE: see ukiran/gopl/_revise/ch8/exercises/ex-8.4/main.go for a
+// simpler implementation.
 package main
 
 import (
