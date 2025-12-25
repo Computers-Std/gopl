@@ -1,0 +1,1 @@
+wget --mirror --page-requisites --adjust-extension --convert-links --no-parent "example.org"
