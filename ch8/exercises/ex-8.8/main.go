@@ -1,3 +1,5 @@
+// NOTE: simpler: [file: /home/ukiran/prog/gopl/_revise/ch8/exercises/ex-8.8/main.go]
+
 package main
 
 import (
