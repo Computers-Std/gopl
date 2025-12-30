@@ -1,0 +1,89 @@
+# $ pandoc -f markdown -t org -o todo.org todo.md
+
+GEMINI :: You've built a solid foundation. Your server now handles
+*concurrency*, *state management* (via the broadcaster), *unique
+identity*, and *resource cleanup*.
+
+To take this from a "book exercise" to a robust tool, here are four
+features you should try to implement yourself, ordered from easiest to
+most challenging:
+
+--------------
+
+* 1. Timestamps and Message Formatting
+:PROPERTIES:
+:CUSTOM_ID: timestamps-and-message-formatting
+:END:
+Currently, messages are just raw strings. Make the chat look
+professional by adding the time of delivery.
+
+- *The Task:* Modify the =broadcaster= or the =session= so that every
+  message is prefixed with the current time.
+- *Goal:* Instead of =Alice: hello=, the client should see
+  =[12:45]   Alice: hello=.
+- *Hint:* Use =time.Now().Format("15:04")=.
+
+* 2. The =/who= Command
+:PROPERTIES:
+:CUSTOM_ID: the-who-command
+:END:
+Users often want to see who is online without having to reconnect.
+
+- *The Task:* In your =session.run= loop, check if a =line= starts with
+  =/who=. If it does, send a request to the =broadcaster= to get the
+  current list of names.
+- *Goal:* When Alice types =/who=, she gets a private message:
+  =Current users: Alice, Bob, Charlie=.
+- *Hint:* You'll need a new channel in your =broadcaster= (e.g.,
+  =query = make(chan chan []string)=) to allow a session to "ask" for
+  the list.
+
+* 3. Private Messaging (=/msg=)
+:PROPERTIES:
+:CUSTOM_ID: private-messaging-msg
+:END:
+This is the ultimate test of your =broadcaster= logic.
+
+- *The Task:* Implement a command like =/msg <username> <message>=.
+- *Goal:* If Alice types =/msg Bob hi=, only Bob sees
+  =[Private]   Alice: hi=.
+- *Challenge:* The =broadcaster= needs to find the specific =client=
+  struct associated with the string "Bob" and send the message only to
+  his =writer= channel.
+
+* 4. Resilient Broadcasting (Non-blocking sends)
+:PROPERTIES:
+:CUSTOM_ID: resilient-broadcasting-non-blocking-sends
+:END:
+Right now, if one user has a very slow internet connection, their
+=cli.writer <- msg= will block. Because the =broadcaster= is a single
+loop, *one slow user freezes the chat for everyone.*
+
+- *The Task:* Modify the =broadcaster= so it doesn't wait for slow
+  clients.
+- *Goal:* If a client's buffer is full, the server should either skip
+  them or disconnect them.
+- *Hint:* Use a =select= with a =default= case inside the broadcaster's
+  broadcast loop:
+
+#+begin_src go
+select {
+case cli.writer <- msg:
+default:
+    // skip or log that the client is too slow
+}
+#+end_src
+
+--------------
+
+* 5. Proper Shutdown Handling
+:PROPERTIES:
+:CUSTOM_ID: proper-shutdown-handling
+:END:
+If you stop your server (Ctrl+C), the clients just see a "connection
+reset."
+
+- *The Task:* Catch the interrupt signal in =main= and tell the
+  =broadcaster= to send a "Server shutting down" message to everyone
+  before closing all connections.
+- *Hint:* Look into the =os/signal= package and =context.Context=.
