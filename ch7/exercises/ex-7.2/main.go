@@ -25,10 +25,10 @@ func CountingWriter(w io.Writer) (io.Writer, *int64) {
 // CounterWriter is a proxy
 func main() {
 	cw, c := CountingWriter(os.Stdout)
-	fmt.Fprintf(cw, "This is %dth day without a job.\n", 26)
+	fmt.Fprintf(cw, "This is %dth day with a smile on face.\n", 26)
 	fmt.Println(*c)
 
 	// another output
-	fmt.Fprint(cw, "Fuck...\n")
+	fmt.Fprint(cw, "ha ha...\n")
 	fmt.Println(*c)
 }
